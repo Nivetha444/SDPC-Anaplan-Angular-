@@ -7,20 +7,31 @@ export interface PeriodicElement {
   Label: string;
   API_Name: string;
   Description: string;
-  sync:String;
+  sync:string;
+  Deployed:string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {Label:'Account Name', API_Name: 'Account Name_c', Description: 'It contain accounts name', sync: new Date(1558355634570).toDateString()}
-  /*{Label:'bccount Name', API_Name: 'Account Name_c', Description: 'It contain accounts name', sync: new Date(11/12/13)},
-  {Label:'cccount Name', API_Name: 'Account Name_c', Description: 'It contain accounts name', sync: new Date(11/12/13)},
-  {Label:'dccount Name', API_Name: 'Account Name_c', Description: 'It contain accounts name', sync: new Date(11/12/13)},
-  {Label:'eccount Name', API_Name: 'Account Name_c', Description: 'It contain accounts name', sync: new Date(11/12/13)},
-  {Label:'fccount Name', API_Name: 'Account Name_c', Description: 'It contain accounts name', sync: new Date(11/12/13)},
-  {Label:'gccount Name', API_Name: 'Account Name_c', Description: 'It contain accounts name', sync: new Date(11/12/13)},
-  {Label:'hccount Name', API_Name: 'Account Name_c', Description: 'It contain accounts name', sync: new Date(11/12/13)},
-  {Label:'iccount Name', API_Name: 'Account Name_c', Description: 'It contain accounts name', sync: new Date(11/12/13)},
-  {Label:'lccount Name', API_Name: 'Account Name_c', Description: 'It contain accounts name', sync: new Date(11/12/13)}*/
+  {Label:'Account', API_Name: 'Account Name_c', Description: '', sync: '10/12/13', Deployed:'yes'},
+  {Label:'Contact', API_Name: 'Contact_c', Description: '', sync: '11/12/13', Deployed:'No'},
+  {Label:'Industry Ranking', API_Name: 'Industry Ranking_c', Description: 'To track and maintain the Industry standards for prospects and customers', sync: '4/10/13', Deployed:'yes'},
+  {Label:'Lead', API_Name: 'Lead_c', Description: '', sync: '9/04/13', Deployed:'No'},
+  {Label:'Master Office', API_Name: 'Master Office_c', Description: 'Quate Integration list compromnise of CCW and EDW offers.', sync: '12/11/11', Deployed:'yes'},
+  {Label:'Account', API_Name: 'Account Name_c', Description: '', sync: '10/12/13', Deployed:'yes'},
+  {Label:'Contact', API_Name: 'Contact_c', Description: '', sync: '11/12/13', Deployed:'No'},
+  {Label:'Industry Ranking', API_Name: 'Industry Ranking_c', Description: 'To track and maintain the Industry standards for prospects and customers', sync: '4/10/13', Deployed:'yes'},
+  {Label:'Lead', API_Name: 'Lead_c', Description: '', sync: '9/04/13', Deployed:'No'},
+  {Label:'Master Office', API_Name: 'Master Office_c', Description: 'Quate Integration list compromnise of CCW and EDW offers.', sync: '12/11/11', Deployed:'yes'},
+  {Label:'Account', API_Name: 'Account Name_c', Description: '', sync: '10/12/13', Deployed:'yes'},
+  {Label:'Contact', API_Name: 'Contact_c', Description: '', sync: '11/12/13', Deployed:'No'},
+  {Label:'Industry Ranking', API_Name: 'Industry Ranking_c', Description: 'To track and maintain the Industry standards for prospects and customers', sync: '4/10/13', Deployed:'yes'},
+  {Label:'Lead', API_Name: 'Lead_c', Description: '', sync: '9/04/13', Deployed:'No'},
+  {Label:'Master Office', API_Name: 'Master Office_c', Description: 'Quate Integration list compromnise of CCW and EDW offers.', sync: '12/11/11', Deployed:'yes'},
+  {Label:'Account', API_Name: 'Account Name_c', Description: '', sync: '10/12/13', Deployed:'yes'},
+  {Label:'Contact', API_Name: 'Contact_c', Description: '', sync: '11/12/13', Deployed:'No'},
+  {Label:'Industry Ranking', API_Name: 'Industry Ranking_c', Description: 'To track and maintain the Industry standards for prospects and customers', sync: '4/10/13', Deployed:'yes'},
+  {Label:'Lead', API_Name: 'Lead_c', Description: '', sync: '9/04/13', Deployed:'No'},
+  {Label:'Master Office', API_Name: 'Master Office_c', Description: 'Quate Integration list compromnise of CCW and EDW offers.', sync: '12/11/11', Deployed:'yes'},
 ];
 
 @Component({
@@ -31,18 +42,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 
 export class UserTableComponent {
-  // elements: any = [];
-  // headElements = ['id', 'first', 'last', 'handle'];
-
-  // ngOnInit() {
-  //   for (let i = 1; i <= 15; i++) {
-  //     this.elements.push({ id: i, first: 'User ' + i, last: 'Name ' + i, handle: 'Handle ' + i });
-  //   }
-  // }
-  displayedColumns: string[] = ['select','Label', 'API_Name', 'Description', 'sync'];
+  displayedColumns: string[] = ['select','Label', 'API_Name', 'Description', 'sync', 'Deployed'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<PeriodicElement>(true, []);
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
@@ -65,9 +71,9 @@ export class UserTableComponent {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.Label + 1}`;
   }
 
-// @ViewChild(MatSort) sort: MatSort;
+@ViewChild(MatSort) sort: MatSort;
 
-// ngOnInit() {
-//   this.dataSource.sort = this.sort;
-// }
+ngOnInit() {
+  this.dataSource.sort = this.sort;
+}
 }

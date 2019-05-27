@@ -1,0 +1,67 @@
+.main-logo {
+    width: 60px;
+    height: 60px;
+  }
+  mat-toolbar{
+    background: #185BB2;
+  }
+  .searchbar{
+      float:right;
+      margin-top: 8px;
+     margin-right: 16px;
+    font-size: 14px;
+    height:37px;
+    padding:8px;
+    width:500px;
+    border: 1px solid #999;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0px;
+  }
+  span{
+    width: 100%;
+    font-size:15px;
+    text-align: center; 
+    color: white
+  }
+
+  table {
+    width: 100%;
+    background-color:whitesmoke;
+  }
+  
+  .table-panel {
+    padding-top: 1%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 98%;
+  }
+  .table-scroll{
+    height:520px;
+    overflow: auto;
+  }
+  thead{
+    position: fixed;
+  }
+  td{
+    font-size: 12px;
+    height: 20px;
+  }
+  .mat-elevation-z8 {
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .12), 0 1px 1px 1px rgba(0, 0, 0, .14), 0 1px 1px 1px rgba(0, 0, 0, .12);
+  }
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  } 
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #98AFC7; 
+  } 
+  ::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px #98AFC7; 
+  }

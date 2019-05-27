@@ -1,2 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+body{
+    background-color:#ffffff;
+    margin: 0px;
+}
+.mat-toolbar{
+    background-color:#ffffff;
+    height: 90px;
+    box-shadow: 1px 1px 4px 1px lightgray;
+  }
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+      background-color: aqua;
+  }

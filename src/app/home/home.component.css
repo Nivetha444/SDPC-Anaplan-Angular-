@@ -1,0 +1,28 @@
+.heading{
+    text-align: center;
+}
+.main-logo{
+    width: 60px;
+    height: 60px;
+}
+mat-toolbar{
+    background: #185BB2;
+  }
+a{
+    text-decoration: none;
+}
+/* .sales{
+border-bottom:1px solid #185BB2;
+} */
+.box{
+    border: 2px solid #185BB2;
+      margin: auto;
+     padding:40px;
+     padding-left:20px;
+     height: 300px;
+     width:400px;
+}
+mat-icon{
+    padding:5px;
+}
+
