@@ -4,7 +4,7 @@
 
 <div class="table-panel">
     <div class="table-scroll">
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows class="mat-elevation-z8">
     <ng-container matColumnDef="select">
       <th mat-header-cell *matHeaderCellDef>
         <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
@@ -49,10 +49,62 @@
     <td mat-cell *matCellDef="let element"> {{element.Deployed}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+           <table>
+             <thead>
+               <tr>
+               <td>Account_Name</td>
+               <td>CR_Name</td>
+               <td>State</td>
+               <td>Country</td>
+               <td>Account_Record</td>
+              </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <td>{{element.Account_Name}}</td>
+                 <td>{{element.CR_Name}}</td>
+                 <td> {{element.State}} </td>
+                  <td>{{element.Country}}</td>
+                  <td>{{element.Account_Record}}</td>
+          <!-- <div class="example-element-position"> {{element.position}} </div>
+          <div class="example-element-symbol"> {{element.symbol}} </div>
+          <div class="example-element-name"> {{element.name}} </div>
+          <div class="example-element-weight"> {{element.weight}} </div>
+        <div class="example-element-description">
+          {{element.description}}
+        </div> -->
+        </tr>
+        <tr>
+          <td>{{element.Account_Name}}</td>
+                 <td>{{element.CR_Name}}</td>
+                 <td> {{element.State}} </td>
+                  <td>{{element.Country}}</td>
+                  <td>{{element.Account_Record}}</td>
+            </tr>
+             <tr>
+              <td>{{element.Account_Name}}</td>
+              <td>{{element.CR_Name}}</td>
+              <td> {{element.State}} </td>
+               <td>{{element.Country}}</td>
+               <td>{{element.Account_Record}}</td>
+                </tr>
+      </tbody>
+        </table>
+      </div>
+    </td>
+  </ng-container>
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
-      <!-- (click)="selection.toggle(row)"> -->
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
   </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
 </div>
 </div>

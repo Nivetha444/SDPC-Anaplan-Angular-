@@ -1,57 +1,75 @@
 <div class="container">
-<div class="row">
-  <p>Select Object</p>
-  <select class="dropdown" [(ngModel)]="selectedObject" (ngModelChange)="onSelectChange()">
-    <option value=null>Select</option>
-    <option value="Account">Account</option>
-    <option value="Contact">Contact</option>
-    <option value="Lead">Lead</option>
-    <option value="Office">Master office</option>
-  </select>
-  <div class="col text-right">
-  <button mat-button [mat-dialog-close] type="button" class="close" onclick="close()">
-      <span>&times;</span>
-    </button>
+  <div class="row">
+    <p>Select Object</p>
+    <select
+      class="dropdown"
+      [(ngModel)]="selectedObject"
+      (ngModelChange)="onSelectChange()"
+    >
+      <option value="null">Select</option>
+      <option value="Account">Account</option>
+      <option value="Contact">Contact</option>
+      <option value="Lead">Lead</option>
+      <option value="Office">Master office</option>
+    </select>
+    <div class="col text-right">
+      <button
+        mat-button
+        [mat-dialog-close]
+        type="button"
+        class="close"
+        onclick="close()"
+      >
+        <span>&times;</span>
+      </button>
+    </div>
   </div>
-</div>
 </div>
 
 <hr />
 <div class="container">
-<div class="row">
-<div class="col-4">
-<div *ngFor="let r of  displaydesc">
-<p>{{r.description}}</p>
-</div>
-</div>
-<div class = "vertical"></div>
-<div class="col-8">
- <!-- <input type="text" class="search" placeholder=" Search" ng-model="serachItem"/>
-  <br /> -->
-  <br />
-  <div class="table-scroll">
-  <table>
-    <thead>
-      <tr>
-        <td>Sales Object Field</td>
-        <td>Anaplan Model Field</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let row of displayModelList">
-        <td>{{row.Salesforce}}</td>
-        <td>{{row.Anaplan}}</td>
-      </tr>
-    </tbody>
-  </table> 
-</div>
-</div>
-</div>
-</div>
-<br>
-<hr>
-<br>
-<div class="col text-center">
-    <button id="close" mat-button [mat-dialog-close] type="button" class="btn" cdkFocusInitial>Done</button>
+  <div class="row">
+    <div class="col-4">
+      <div *ngFor="let r of displaydesc">
+        <p>{{ r.description }}</p>
+      </div>
     </div>
-
+    <div class="vertical"></div>
+    <div class="col-8">
+      <!-- <input type="text" class="search" placeholder=" Search" ng-model="serachItem"/>
+  <br /> -->
+      <br />
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <td>Sales Object Field</td>
+              <td>Anaplan Model Field</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of displayModelList">
+              <td>{{ row.Salesforce }}</td>
+              <td>{{ row.Anaplan }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<hr />
+<br />
+<div class="col text-center">
+  <button
+    id="close"
+    mat-button
+    [mat-dialog-close]
+    type="button"
+    class="btn"
+    cdkFocusInitial
+  >
+    Done
+  </button>
+</div>

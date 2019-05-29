@@ -19,6 +19,7 @@ import { SyncComponent } from './sync/sync.component';
 import { HomeComponent } from './home/home.component';
 import { SalesforceComponent } from './salesforce/salesforce.component';
 import { JobsComponent } from './jobs/jobs.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { JobsComponent } from './jobs/jobs.component';
     HomeComponent,
     SalesforceComponent,
     JobsComponent,
+    AccountsComponent,
   ],
   imports: [
     BrowserModule,

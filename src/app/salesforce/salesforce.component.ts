@@ -1,7 +1,7 @@
 import { Component , ViewChild } from '@angular/core';
 import { PopupboxComponent } from '../popupbox/popupbox.component';
 import { MatDialog } from '@angular/material';
-import {SelectionModel, DataSource} from '@angular/cdk/collections';
+import {SelectionModel} from '@angular/cdk/collections';
 import {MatTableDataSource, MatSort} from '@angular/material';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
@@ -12,6 +12,14 @@ Description: string;
 sync:string;
 Deployed:string;
 }
+
+export interface Elements{
+  Account_Name:string;
+  CR_Name:string;
+  State:string;
+  Country:string;
+  Account_Record:string;
+ }
 
 const ELEMENT_DATA: PeriodicElement[] = [
 {Label:'Account', API_Name: 'Account Name_c', Description: '', sync: '10/12/13', Deployed:'yes'},
@@ -36,14 +44,23 @@ const ELEMENT_DATA: PeriodicElement[] = [
 {Label:'Master Office', API_Name: 'Master Office_c', Description: 'Quate Integration list compromnise of CCW and EDW offers.', sync: '12/11/11', Deployed:'yes'},
 ];
 
+const Element_DATA1:Elements[] = [
+  {Account_Name:'abc', CR_Name:'cds', State:'DFS', Country:'AD', Account_Record:'BRFBD'},
+  {Account_Name:'abc', CR_Name:'cds', State:'DFS', Country:'AD', Account_Record:'BRFBD'},
+  {Account_Name:'abc', CR_Name:'cds', State:'DFS', Country:'AD', Account_Record:'BRFBD'},
+  {Account_Name:'abc', CR_Name:'cds', State:'DFS', Country:'AD', Account_Record:'BRFBD'},
+  {Account_Name:'abc', CR_Name:'cds', State:'DFS', Country:'AD', Account_Record:'BRFBD'},
+  ];
+
+
 @Component({
   selector: 'app-salesforce',
   templateUrl: './salesforce.component.html',
   styleUrls: ['./salesforce.component.css'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
-      state('expanded', style({ height: '*', visibility: 'visible' })),
+      state('collapsed', style({height: '0px', minHeight: '0', display: 'none'})),
+      state('expanded', style({height: '*'})),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
@@ -64,11 +81,11 @@ export class SalesforceComponent {
   }
   displayedColumns: string[] = ['select','Label', 'API_Name', 'Description', 'sync', 'Deployed'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  
+  dataSources = new MatTableDataSource<Elements>(Element_DATA1);
+  expandedElement: PeriodicElement | null;
+
   selection = new SelectionModel<PeriodicElement>(true, []);
-
-  isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
-  expandedElement: any;
-
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }

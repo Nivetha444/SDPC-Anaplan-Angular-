@@ -10,5 +10,5 @@ body{
     box-shadow: 1px 1px 4px 1px lightgray;
   }
   .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
-      background-color: aqua;
+      background-color: #708090;
   }

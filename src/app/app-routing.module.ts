@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SalesforceComponent } from './salesforce/salesforce.component';
 import { JobsComponent } from './jobs/jobs.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path:'Salesforce/Jobs Monitor',
     component: JobsComponent
+  },
+  {
+    path:'Salesforce/Account Review',
+    component:AccountsComponent
   }
 ];
 
