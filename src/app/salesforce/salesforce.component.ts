@@ -1,7 +1,7 @@
 import { Component , ViewChild } from '@angular/core';
 import { PopupboxComponent } from '../popupbox/popupbox.component';
 import { MatDialog } from '@angular/material';
-import {SelectionModel} from '@angular/cdk/collections';
+import {SelectionModel, DataSource} from '@angular/cdk/collections';
 import {MatTableDataSource, MatSort} from '@angular/material';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
@@ -79,11 +79,15 @@ export class SalesforceComponent {
       console.log('The dialog was closed');
     });
   }
-  displayedColumns: string[] = ['select','Label', 'API_Name', 'Description', 'sync', 'Deployed'];
+
+  columnsToDisplay: string[] = ['select','Label', 'API_Name', 'Description', 'sync', 'Deployed'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  
-  dataSources = new MatTableDataSource<Elements>(Element_DATA1);
   expandedElement: PeriodicElement | null;
+
+  datasources1 = Element_DATA1;
+  displayedColumns: string[] = ['Account_Name', 'CR_Name', 'State', 'Country','Account_Record'];
+  expandedElements: Elements | null;
+
 
   selection = new SelectionModel<PeriodicElement>(true, []);
   applyFilter(filterValue: string) {

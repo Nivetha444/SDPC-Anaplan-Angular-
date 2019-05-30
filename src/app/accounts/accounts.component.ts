@@ -17,19 +17,23 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 
 export class AccountsComponent {
 
-  dataSource = ELEMENT_DATA;
+  dataSource = ELEMENT_DATA1;
   columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
-  expandedElement: Elements | null;
+  expandedElement: PeriodicElement | null;
+
+  datasources1 = ELEMENT_DATA;
+  displayedColumns =['Account_Name', 'CR_Name', 'State', 'Country','Account_Record'];
+  expandedElements:  Elements| null;
 }
 
 
-// export interface PeriodicElement {
-//   name: string;
-//   position: number;
-//   weight: number;
-//   symbol: string;
-//   description: string;
-// }
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+  description: string;
+}
 
 export interface Elements{
   Account_Name:string;
@@ -39,6 +43,29 @@ export interface Elements{
   Account_Record:string;
 }
 
+const ELEMENT_DATA1: PeriodicElement[] = [
+  {
+name:'Nivetha',
+position: 123,
+weight:345,
+symbol:'hydrogen',
+description:'Hydrpgen is a gas'
+  },
+  {
+    name:'Nivetha',
+    position: 123,
+    weight:345,
+    symbol:'hydrogen',
+    description:'Hydrpgen is a gas'
+      },
+        {
+name:'Nivetha',
+position: 123,
+weight:345,
+symbol:'hydrogen',
+description:'Hydrpgen is a gas'
+  }
+];
 
 const ELEMENT_DATA: Elements[] = [
   {
@@ -90,4 +117,32 @@ const ELEMENT_DATA: Elements[] = [
     Country:'India',
     Account_Record: 'zs'
   },  
+  {
+    Account_Name: 'abc',
+    CR_Name: 'Carbon',
+    State: 'TamilNdu',
+    Country:'India',
+    Account_Record: 'zs'
+  },  
+  {
+    Account_Name: 'abc',
+    CR_Name: 'Carbon',
+    State: 'TamilNdu',
+    Country:'India',
+    Account_Record: 'zs'
+  },  
+  {
+    Account_Name: 'abc',
+    CR_Name: 'Carbon',
+    State: 'TamilNdu',
+    Country:'India',
+    Account_Record: 'zs'
+  },  
+  {
+    Account_Name: 'abc',
+    CR_Name: 'Carbon',
+    State: 'TamilNdu',
+    Country:'India',
+    Account_Record: 'zs'
+  }
 ];
