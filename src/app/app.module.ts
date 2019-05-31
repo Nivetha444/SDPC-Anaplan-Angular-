@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { AjaxService } from './shared/services/ajaxService.service';
+import { HttpInterceptorProviders } from './shared/interceptor.provider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,8 +15,8 @@ import { UserTableComponent } from './user-table/user-table.component';
 import {MatRippleModule} from '@angular/material/core';
 
 import { MatTableModule, MatCheckboxModule,  MatSortModule, MatFormFieldModule, MatInputModule } from '@angular/material';
-import {MatDialogModule} from "@angular/material";
-import {MatIconModule} from '@angular/material/icon'
+import {MatDialogModule} from '@angular/material';
+import {MatIconModule} from '@angular/material/icon';
 import { PopupboxComponent } from './popupbox/popupbox.component';
 import { MappingsComponent } from './mappings/mappings.component';
 import { SyncComponent } from './sync/sync.component';
@@ -50,10 +54,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    HttpClientModule, HttpModule
   ],
-  providers: [],
+  providers: [AjaxService, HttpInterceptorProviders],
   bootstrap: [AppComponent],
-  entryComponents:[PopupboxComponent]
+  entryComponents: [PopupboxComponent]
 })
 export class AppModule { }

@@ -1,9 +1,9 @@
-.main-logo {
-    width: 60px;
-    height: 60px;
-  }
+
   mat-toolbar{
     background: #185BB2;
+  }
+  .main-logo {
+    height: 32px;
   }
   i{
     margin-top: 15px;
@@ -58,7 +58,7 @@ table {
   width: 98%;
 }
 .table-scroll{
-  height:460px;
+  height:calc(100vh - 220px);
   overflow-x: auto;
 }
 td{
@@ -145,4 +145,8 @@ input[type='checkbox'] {
 
 .lbl-toggle:hover {
   color: #7C5A0B;
+}
+
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell{
+  border-bottom-style:none !important;
 }
