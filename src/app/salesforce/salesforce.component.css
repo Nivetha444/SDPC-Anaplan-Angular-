@@ -5,6 +5,10 @@
   mat-toolbar{
     background: #185BB2;
   }
+  i{
+    margin-top: 15px;
+    padding-left: 25px;
+  }
   .searchbar{
       float:right;
       margin-top: 8px;
@@ -59,7 +63,7 @@ table {
 }
 td{
   font-size: 12px;
-  height: 20px;
+  height: 10px;
 }
 .mat-elevation-z8 {
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .12), 0 1px 1px 1px rgba(0, 0, 0, .14), 0 1px 1px 1px rgba(0, 0, 0, .12);
@@ -87,7 +91,7 @@ th.mat-sort-header-sorted {
 }
 
 #childTable{
-  width:70%;
+  width:100%;
   /* border: 1px solid black;
   border-bottom: 1x solid black; */
   margin-bottom: 20px;
@@ -116,5 +120,29 @@ tr.example-element-row:not(.example-expanded-row):active {
   display: flex;
 }  
  
+input[type='checkbox'] {
+  display: none;
+}
+.lbl-toggle {
+  display: block;
 
- 
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-align: center;
+
+  padding: 1rem;
+
+  color: #A77B0E;
+  background: #FAE042;
+
+  cursor: pointer;
+
+  border-radius: 7px;
+  transition: all 0.25s ease-out;
+}
+
+.lbl-toggle:hover {
+  color: #7C5A0B;
+}

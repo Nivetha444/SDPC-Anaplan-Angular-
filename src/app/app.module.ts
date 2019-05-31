@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { SalesforceComponent } from './salesforce/salesforce.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { AccountsComponent } from './accounts/accounts.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AccountsComponent } from './accounts/accounts.component';
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
-    MatRippleModule
+    MatRippleModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent],

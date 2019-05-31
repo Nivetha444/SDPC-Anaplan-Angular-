@@ -67,6 +67,7 @@ const Element_DATA1:Elements[] = [
 })
 
 export class SalesforceComponent {
+  collapsed:false;
   
   constructor(public dialog: MatDialog) { }
   openDialog(): void {

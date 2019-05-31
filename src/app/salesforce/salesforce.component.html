@@ -41,7 +41,7 @@
             [aria-label]="checkboxLabel()"
           >
           </mat-checkbox>
-          Select
+        
         </th>
         <td mat-cell *matCellDef="let row">
           <mat-checkbox
@@ -51,12 +51,19 @@
             [aria-label]="checkboxLabel(row)"
           >
           </mat-checkbox>
+      
+                  <i class="collapsed-show material-icons">keyboard_arrow_down</i> 
+              
         </td>
       </ng-container>
+<!-- 
+      <mat-icon (click)="collapsed=true">keyboard_arrow_down</mat-icon>
+      <mat-icon (click)="collapsed=false">keyboard_arrow_up</mat-icon> -->
 
       <ng-container matColumnDef="Label">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>LABEL</th>
-        <td mat-cell *matCellDef="let element">{{ element.Label }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.Label }}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="API_Name">
