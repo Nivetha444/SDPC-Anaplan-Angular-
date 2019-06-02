@@ -25,6 +25,8 @@ import { SalesforceComponent } from './salesforce/salesforce.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { AccountsService } from '../app/services/accounts.service';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +59,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatButtonToggleModule,
     HttpClientModule, HttpModule
   ],
-  providers: [AjaxService, HttpInterceptorProviders],
+  providers: [AjaxService, HttpInterceptorProviders, AccountsService],
   bootstrap: [AppComponent],
   entryComponents: [PopupboxComponent]
 })
