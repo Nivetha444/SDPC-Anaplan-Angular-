@@ -26,6 +26,8 @@ import { JobsComponent } from './jobs/jobs.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { AccountsService } from '../app/services/accounts.service';
+import { AnaplanComponent } from './anaplan/anaplan.component';
+import { PopupAnaplanComponent } from './popup-anaplan/popup-anaplan.component';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import { AccountsService } from '../app/services/accounts.service';
     SalesforceComponent,
     JobsComponent,
     AccountsComponent,
+    AnaplanComponent,
+    PopupAnaplanComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +65,6 @@ import { AccountsService } from '../app/services/accounts.service';
   ],
   providers: [AjaxService, HttpInterceptorProviders, AccountsService],
   bootstrap: [AppComponent],
-  entryComponents: [PopupboxComponent]
+  entryComponents: [PopupboxComponent, PopupAnaplanComponent]
 })
 export class AppModule { }

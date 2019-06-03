@@ -1,13 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import * as _ from "lodash";
 
-
 @Component({
-  selector: "app-popupbox",
-  templateUrl: "./popupbox.component.html",
-  styleUrls: ["./popupbox.component.css"]
+  selector: 'app-popup-anaplan',
+  templateUrl: './popup-anaplan.component.html',
+  styleUrls: ['./popup-anaplan.component.css']
 })
-export class PopupboxComponent implements OnInit {
+export class PopupAnaplanComponent implements OnInit {
   private show: boolean = false;
   public close(): void {
     this.show = false;

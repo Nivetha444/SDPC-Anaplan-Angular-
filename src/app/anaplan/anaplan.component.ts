@@ -1,10 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
-import { PopupboxComponent } from '../popupbox/popupbox.component';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { PopupAnaplanComponent } from '../popup-anaplan/popup-anaplan.component';
 import { MatDialog } from '@angular/material';
 import { SelectionModel, DataSource } from '@angular/cdk/collections';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { AccountPreviewService } from './service/AccountPreview';
+import { AccountPreviewService } from '../salesforce/service/AccountPreview';
 
 export interface PeriodicElement {
   Label: string;
@@ -52,11 +52,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 
-
 @Component({
-  selector: 'app-salesforce',
-  templateUrl: './salesforce.component.html',
-  styleUrls: ['./salesforce.component.css'],
+  selector: 'app-anaplan',
+  templateUrl: './anaplan.component.html',
+  styleUrls: ['./anaplan.component.css'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({ height: '0px', minHeight: '0', display: 'none' })),
@@ -65,13 +64,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     ]),
   ],
 })
-
-export class SalesforceComponent {
-
-  // public show:boolean = false;
-
-  // toggle() {
-  //   this.show = !this.show;}
+export class AnaplanComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private readonly accountPreviewService: AccountPreviewService) { }
   collapsed: false;
@@ -80,7 +73,7 @@ export class SalesforceComponent {
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   expandedElement: PeriodicElement | null;
   datasources1 = [];
-  displayedColumns: string[] = ['Accounts_weekly__c', 'Name', 'Geo__c', 'Country__c', 'AccountNumber', 'Account_Record_Type__c', 'Id'];
+  displayedColumns: string[] = ['Accounts_weekly__c', 'Parent_Account_ID_18_Digit__c', 'PARENT_ACCOUNT_NAME__c', 'type', 'Code__c'];
   // datasources1 = Element_DATA1;
   // displayedColumns: string[] = ['Account_Name', 'CR_Name', 'State', 'Country', 'Account_Record'];
   // expandedElements: Elements | null;
@@ -90,7 +83,7 @@ export class SalesforceComponent {
 
   @ViewChild(MatSort) sort: MatSort;
   openDialog(): void {
-    const dialogRef = this.dialog.open(PopupboxComponent, {
+    const dialogRef = this.dialog.open(PopupAnaplanComponent, {
       width: '700px',
       height: '530px'
     });
@@ -129,8 +122,11 @@ export class SalesforceComponent {
     this.accountPreviewService.getAll({})
       .subscribe(response => {
           this.datasources1 = response;
-          this.displayedColumns  = ['Accounts_weekly__c', 'Name', 'Geo__c', 'Country__c', 'AccountNumber', 'Account_Record_Type__c', 'Id'];
+          this.displayedColumns  = ['Accounts_weekly__c', 'Parent_Account_ID_18_Digit__c', 'PARENT_ACCOUNT_NAME__c', 'type', 'Code__c'];
       });
   }
 
 }
+
+
+

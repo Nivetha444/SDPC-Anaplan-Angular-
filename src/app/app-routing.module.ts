@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { SalesforceComponent } from './salesforce/salesforce.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { AccountsComponent } from './accounts/accounts.component';
+import { AnaplanComponent } from './anaplan/anaplan.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   path:'Salesforce',
   component: SalesforceComponent
   },
+  {
+    path:'Anaplan',
+    component: AnaplanComponent
+    },
   {
     path:'Salesforce/Jobs Monitor',
     component: JobsComponent

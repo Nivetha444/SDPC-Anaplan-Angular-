@@ -2,7 +2,7 @@
   <a class="navbar-brand" routerLink="">
     <img class="main-logo" src="https://enquero.com/wp-content/uploads/2017/08/LOGO-WHITE-1.png" alt="logo" />
   </a>
-  <span>SFDC Object Manger</span>
+  <span>Anaplan Model</span>
 
   <input type="search" class="searchbar" (keyup)="applyFilter($event.target.value)" placeholder=" Search" />
 </mat-toolbar>
@@ -95,6 +95,7 @@
         <td mat-cell *matCellDef="let element">{{ element.Deployed }}</td>
       </ng-container>
 
+
       <ng-container matColumnDef="expandedDetail">
         <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
           <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
@@ -106,34 +107,24 @@
                 <td mat-cell *matCellDef="let elem"> {{elem.Accounts_weekly__c}} </td>
               </ng-container>
 
-              <ng-container matColumnDef="Name">
-                <th mat-header-cell *matHeaderCellDef>NAME</th>
-                <td mat-cell *matCellDef="let elem"> {{elem.Name}} </td>
+              <ng-container matColumnDef="Parent_Account_ID_18_Digit__c">
+                <th mat-header-cell *matHeaderCellDef>PARENT ID</th>
+                <td mat-cell *matCellDef="let elem"> {{elem.Parent_Account_ID_18_Digit__c}} </td>
               </ng-container>
 
-              <ng-container matColumnDef="Geo__c">
-                <th mat-header-cell *matHeaderCellDef>GEO</th>
-                <td mat-cell *matCellDef="let elem"> {{elem.Geo__c}} </td>
+              <ng-container matColumnDef="PARENT_ACCOUNT_NAME__c">
+                <th mat-header-cell *matHeaderCellDef>PARENT ACCOUNT NAME</th>
+                <td mat-cell *matCellDef="let elem"> {{elem.PARENT_ACCOUNT_NAME__c}} </td>
               </ng-container>
 
-              <ng-container matColumnDef="Country__c">
-                <th mat-header-cell *matHeaderCellDef>COUNTRY</th>
-                <td mat-cell *matCellDef="let elem"> {{elem.Country__c}} </td>
+              <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef>TYPE</th>
+                <td mat-cell *matCellDef="let elem"> {{elem.type}} </td>
               </ng-container>
 
-              <ng-container matColumnDef="AccountNumber">
-                <th mat-header-cell *matHeaderCellDef>ACCOUNT NUMBER</th>
-                <td mat-cell *matCellDef="let elem"> {{elem.AccountNumber}} </td>
-              </ng-container>
-
-              <ng-container matColumnDef="Account_Record_Type__c">
-                <th mat-header-cell *matHeaderCellDef>ACCOUNT RECORD TYPE</th>
-                <td mat-cell *matCellDef="let elem"> {{elem.Account_Record_Type__c}} </td>
-              </ng-container>
-
-              <ng-container matColumnDef="Id">
-                <th mat-header-cell *matHeaderCellDef>ID</th>
-                <td mat-cell *matCellDef="let elem"> {{elem.Id}} </td>
+              <ng-container matColumnDef="Code__c">
+                <th mat-header-cell *matHeaderCellDef>CODE</th>
+                <td mat-cell *matCellDef="let elem"> {{elem.Code__c}} </td>
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -154,3 +145,4 @@
 <div class="col text-right">
   <button type="button" class="btn">Sync Now</button>
 </div>
+
